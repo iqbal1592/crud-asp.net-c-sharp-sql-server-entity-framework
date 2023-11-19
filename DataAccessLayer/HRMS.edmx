@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HRMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="HRMSModelStoreContainer">
+          <EntitySet Name="BonusType" EntityType="HRMSModel.Store.BonusType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="HRMSModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DeductionType" EntityType="HRMSModel.Store.DeductionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Designation" EntityType="HRMSModel.Store.Designation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpAttendance" EntityType="HRMSModel.Store.EmpAttendance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpBonus" EntityType="HRMSModel.Store.EmpBonus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpDeduction" EntityType="HRMSModel.Store.EmpDeduction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpLeave" EntityType="HRMSModel.Store.EmpLeave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpLoan" EntityType="HRMSModel.Store.EmpLoan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="HRMSModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeType" EntityType="HRMSModel.Store.EmployeeType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpSalary" EntityType="HRMSModel.Store.EmpSalary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LeaveType" EntityType="HRMSModel.Store.LeaveType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoanType" EntityType="HRMSModel.Store.LoanType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_EmpAttendance_Employee" Association="HRMSModel.Store.FK_EmpAttendance_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpAttendance" EntitySet="EmpAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpBonus_BonusType" Association="HRMSModel.Store.FK_EmpBonus_BonusType">
+            <End Role="BonusType" EntitySet="BonusType" />
+            <End Role="EmpBonus" EntitySet="EmpBonus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpBonus_Employee" Association="HRMSModel.Store.FK_EmpBonus_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpBonus" EntitySet="EmpBonus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpDeduction_DeductionType" Association="HRMSModel.Store.FK_EmpDeduction_DeductionType">
+            <End Role="DeductionType" EntitySet="DeductionType" />
+            <End Role="EmpDeduction" EntitySet="EmpDeduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpDeduction_Employee" Association="HRMSModel.Store.FK_EmpDeduction_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpDeduction" EntitySet="EmpDeduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeave_Employee" Association="HRMSModel.Store.FK_EmpLeave_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpLeave" EntitySet="EmpLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeave_LeaveType" Association="HRMSModel.Store.FK_EmpLeave_LeaveType">
+            <End Role="LeaveType" EntitySet="LeaveType" />
+            <End Role="EmpLeave" EntitySet="EmpLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLoan_Employee" Association="HRMSModel.Store.FK_EmpLoan_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpLoan" EntitySet="EmpLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLoan_LoanType" Association="HRMSModel.Store.FK_EmpLoan_LoanType">
+            <End Role="LoanType" EntitySet="LoanType" />
+            <End Role="EmpLoan" EntitySet="EmpLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Country" Association="HRMSModel.Store.FK_Employee_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Designation" Association="HRMSModel.Store.FK_Employee_Designation">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeType" Association="HRMSModel.Store.FK_Employee_EmployeeType">
+            <End Role="EmployeeType" EntitySet="EmployeeType" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpSalary_Employee" Association="HRMSModel.Store.FK_EmpSalary_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpSalary" EntitySet="EmpSalary" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BonusType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DeductionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmpAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpBonus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="BonusType" Type="int" Nullable="false" />
+          <Property Name="DateApproved" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpDeduction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="DeductionType" Type="int" Nullable="false" />
+          <Property Name="DeductionDate" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpLeave">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="LeaveTypeId" Type="int" Nullable="false" />
+          <Property Name="DateFrom" Type="date" Nullable="false" />
+          <Property Name="DateTo" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpLoan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="LoanDate" Type="date" Nullable="false" />
+          <Property Name="LoanTypeId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="EmpTypeId" Type="int" Nullable="false" />
+          <Property Name="DesignationId" Type="int" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="PassportNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmpSalary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeaveType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_EmpAttendance_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpAttendance" Type="HRMSModel.Store.EmpAttendance" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpAttendance">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpBonus_BonusType">
+          <End Role="BonusType" Type="HRMSModel.Store.BonusType" Multiplicity="1" />
+          <End Role="EmpBonus" Type="HRMSModel.Store.EmpBonus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonusType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpBonus">
+              <PropertyRef Name="BonusType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpBonus_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpBonus" Type="HRMSModel.Store.EmpBonus" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpBonus">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpDeduction_DeductionType">
+          <End Role="DeductionType" Type="HRMSModel.Store.DeductionType" Multiplicity="1" />
+          <End Role="EmpDeduction" Type="HRMSModel.Store.EmpDeduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeductionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpDeduction">
+              <PropertyRef Name="DeductionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpDeduction_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpDeduction" Type="HRMSModel.Store.EmpDeduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpDeduction">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeave_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpLeave" Type="HRMSModel.Store.EmpLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLeave">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeave_LeaveType">
+          <End Role="LeaveType" Type="HRMSModel.Store.LeaveType" Multiplicity="1" />
+          <End Role="EmpLeave" Type="HRMSModel.Store.EmpLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLeave">
+              <PropertyRef Name="LeaveTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLoan_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpLoan" Type="HRMSModel.Store.EmpLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLoan">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLoan_LoanType">
+          <End Role="LoanType" Type="HRMSModel.Store.LoanType" Multiplicity="1" />
+          <End Role="EmpLoan" Type="HRMSModel.Store.EmpLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLoan">
+              <PropertyRef Name="LoanTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Country">
+          <End Role="Country" Type="HRMSModel.Store.Country" Multiplicity="0..1" />
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Designation">
+          <End Role="Designation" Type="HRMSModel.Store.Designation" Multiplicity="0..1" />
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeType">
+          <End Role="EmployeeType" Type="HRMSModel.Store.EmployeeType" Multiplicity="1" />
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmpTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpSalary_Employee">
+          <End Role="Employee" Type="HRMSModel.Store.Employee" Multiplicity="1" />
+          <End Role="EmpSalary" Type="HRMSModel.Store.EmpSalary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpSalary">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BonusType" EntityType="HRMSModel.BonusType" />
+          <EntitySet Name="Country" EntityType="HRMSModel.Country" />
+          <EntitySet Name="DeductionType" EntityType="HRMSModel.DeductionType" />
+          <EntitySet Name="Designation" EntityType="HRMSModel.Designation" />
+          <EntitySet Name="EmpAttendance" EntityType="HRMSModel.EmpAttendance" />
+          <EntitySet Name="EmpBonus" EntityType="HRMSModel.EmpBonus" />
+          <EntitySet Name="EmpDeduction" EntityType="HRMSModel.EmpDeduction" />
+          <EntitySet Name="EmpLeave" EntityType="HRMSModel.EmpLeave" />
+          <EntitySet Name="Employee" EntityType="HRMSModel.Employee" />
+          <EntitySet Name="EmployeeType" EntityType="HRMSModel.EmployeeType" />
+          <EntitySet Name="EmpSalary" EntityType="HRMSModel.EmpSalary" />
+          <EntitySet Name="LeaveType" EntityType="HRMSModel.LeaveType" />
+          <EntitySet Name="LoanType" EntityType="HRMSModel.LoanType" />
+          <AssociationSet Name="FK_EmpBonus_BonusType" Association="HRMSModel.FK_EmpBonus_BonusType">
+            <End Role="BonusType" EntitySet="BonusType" />
+            <End Role="EmpBonus" EntitySet="EmpBonus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Country" Association="HRMSModel.FK_Employee_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpDeduction_DeductionType" Association="HRMSModel.FK_EmpDeduction_DeductionType">
+            <End Role="DeductionType" EntitySet="DeductionType" />
+            <End Role="EmpDeduction" EntitySet="EmpDeduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Designation" Association="HRMSModel.FK_Employee_Designation">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpAttendance_Employee" Association="HRMSModel.FK_EmpAttendance_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpAttendance" EntitySet="EmpAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpBonus_Employee" Association="HRMSModel.FK_EmpBonus_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpBonus" EntitySet="EmpBonus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpDeduction_Employee" Association="HRMSModel.FK_EmpDeduction_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpDeduction" EntitySet="EmpDeduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeave_Employee" Association="HRMSModel.FK_EmpLeave_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpLeave" EntitySet="EmpLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLeave_LeaveType" Association="HRMSModel.FK_EmpLeave_LeaveType">
+            <End Role="LeaveType" EntitySet="LeaveType" />
+            <End Role="EmpLeave" EntitySet="EmpLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeType" Association="HRMSModel.FK_Employee_EmployeeType">
+            <End Role="EmployeeType" EntitySet="EmployeeType" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpSalary_Employee" Association="HRMSModel.FK_EmpSalary_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpSalary" EntitySet="EmpSalary" />
+          </AssociationSet>
+          <EntitySet Name="EmpLoan" EntityType="HRMSModel.EmpLoan" />
+          <AssociationSet Name="FK_EmpLoan_Employee" Association="HRMSModel.FK_EmpLoan_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmpLoan" EntitySet="EmpLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpLoan_LoanType" Association="HRMSModel.FK_EmpLoan_LoanType">
+            <End Role="LoanType" EntitySet="LoanType" />
+            <End Role="EmpLoan" EntitySet="EmpLoan" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BonusType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmpBonus" Relationship="HRMSModel.FK_EmpBonus_BonusType" FromRole="BonusType" ToRole="EmpBonus" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_Employee_Country" FromRole="Country" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="DeductionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmpDeduction" Relationship="HRMSModel.FK_EmpDeduction_DeductionType" FromRole="DeductionType" ToRole="EmpDeduction" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_Employee_Designation" FromRole="Designation" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpAttendance_Employee" FromRole="EmpAttendance" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpBonus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="BonusType" Type="Int32" Nullable="false" />
+          <Property Name="DateApproved" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="BonusType1" Relationship="HRMSModel.FK_EmpBonus_BonusType" FromRole="EmpBonus" ToRole="BonusType" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpBonus_Employee" FromRole="EmpBonus" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpDeduction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="DeductionType" Type="Int32" Nullable="false" />
+          <Property Name="DeductionDate" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="DeductionType1" Relationship="HRMSModel.FK_EmpDeduction_DeductionType" FromRole="EmpDeduction" ToRole="DeductionType" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpDeduction_Employee" FromRole="EmpDeduction" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpLeave">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="LeaveTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DateFrom" Type="DateTime" Nullable="false" />
+          <Property Name="DateTo" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpLeave_Employee" FromRole="EmpLeave" ToRole="Employee" />
+          <NavigationProperty Name="LeaveType" Relationship="HRMSModel.FK_EmpLeave_LeaveType" FromRole="EmpLeave" ToRole="LeaveType" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="EmpTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DesignationId" Type="Int32" />
+          <Property Name="Country" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="Gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Country1" Relationship="HRMSModel.FK_Employee_Country" FromRole="Employee" ToRole="Country" />
+          <NavigationProperty Name="Designation" Relationship="HRMSModel.FK_Employee_Designation" FromRole="Employee" ToRole="Designation" />
+          <NavigationProperty Name="EmpAttendance" Relationship="HRMSModel.FK_EmpAttendance_Employee" FromRole="Employee" ToRole="EmpAttendance" />
+          <NavigationProperty Name="EmpBonus" Relationship="HRMSModel.FK_EmpBonus_Employee" FromRole="Employee" ToRole="EmpBonus" />
+          <NavigationProperty Name="EmpDeduction" Relationship="HRMSModel.FK_EmpDeduction_Employee" FromRole="Employee" ToRole="EmpDeduction" />
+          <NavigationProperty Name="EmpLeave" Relationship="HRMSModel.FK_EmpLeave_Employee" FromRole="Employee" ToRole="EmpLeave" />
+          <NavigationProperty Name="EmployeeType" Relationship="HRMSModel.FK_Employee_EmployeeType" FromRole="Employee" ToRole="EmployeeType" />
+          <NavigationProperty Name="EmpSalary" Relationship="HRMSModel.FK_EmpSalary_Employee" FromRole="Employee" ToRole="EmpSalary" />
+          <NavigationProperty Name="EmpLoan" Relationship="HRMSModel.FK_EmpLoan_Employee" FromRole="Employee" ToRole="EmpLoan" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_Employee_EmployeeType" FromRole="EmployeeType" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmpSalary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpSalary_Employee" FromRole="EmpSalary" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="LeaveType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmpLeave" Relationship="HRMSModel.FK_EmpLeave_LeaveType" FromRole="LeaveType" ToRole="EmpLeave" />
+        </EntityType>
+        <EntityType Name="LoanType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmpLoan" Relationship="HRMSModel.FK_EmpLoan_LoanType" FromRole="LoanType" ToRole="EmpLoan" />
+        </EntityType>
+        <Association Name="FK_EmpBonus_BonusType">
+          <End Role="BonusType" Type="HRMSModel.BonusType" Multiplicity="1" />
+          <End Role="EmpBonus" Type="HRMSModel.EmpBonus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonusType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpBonus">
+              <PropertyRef Name="BonusType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Country">
+          <End Role="Country" Type="HRMSModel.Country" Multiplicity="0..1" />
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpDeduction_DeductionType">
+          <End Role="DeductionType" Type="HRMSModel.DeductionType" Multiplicity="1" />
+          <End Role="EmpDeduction" Type="HRMSModel.EmpDeduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeductionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpDeduction">
+              <PropertyRef Name="DeductionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Designation">
+          <End Role="Designation" Type="HRMSModel.Designation" Multiplicity="0..1" />
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpAttendance_Employee">
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="1" />
+          <End Role="EmpAttendance" Type="HRMSModel.EmpAttendance" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpAttendance">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpBonus_Employee">
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="1" />
+          <End Role="EmpBonus" Type="HRMSModel.EmpBonus" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpBonus">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpDeduction_Employee">
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="1" />
+          <End Role="EmpDeduction" Type="HRMSModel.EmpDeduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpDeduction">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeave_Employee">
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="1" />
+          <End Role="EmpLeave" Type="HRMSModel.EmpLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLeave">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLeave_LeaveType">
+          <End Role="LeaveType" Type="HRMSModel.LeaveType" Multiplicity="1" />
+          <End Role="EmpLeave" Type="HRMSModel.EmpLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLeave">
+              <PropertyRef Name="LeaveTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeType">
+          <End Role="EmployeeType" Type="HRMSModel.EmployeeType" Multiplicity="1" />
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmpTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpSalary_Employee">
+          <End Role="Employee" Type="HRMSModel.Employee" Multiplicity="1" />
+          <End Role="EmpSalary" Type="HRMSModel.EmpSalary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpSalary">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmpLoan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EmpId" Nullable="false" />
+          <Property Type="DateTime" Name="LoanDate" Nullable="false" />
+          <Property Type="Int32" Name="LoanTypeId" Nullable="false" />
+          <Property Type="Double" Name="Amount" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="HRMSModel.FK_EmpLoan_Employee" FromRole="EmpLoan" ToRole="Employee" />
+          <NavigationProperty Name="LoanType" Relationship="HRMSModel.FK_EmpLoan_LoanType" FromRole="EmpLoan" ToRole="LoanType" />
+        </EntityType>
+        <Association Name="FK_EmpLoan_Employee">
+          <End Type="HRMSModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="HRMSModel.EmpLoan" Role="EmpLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLoan">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpLoan_LoanType">
+          <End Type="HRMSModel.LoanType" Role="LoanType" Multiplicity="1" />
+          <End Type="HRMSModel.EmpLoan" Role="EmpLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpLoan">
+              <PropertyRef Name="LoanTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRMSModelStoreContainer" CdmEntityContainer="HRMSEntities">
+          <EntitySetMapping Name="BonusType">
+            <EntityTypeMapping TypeName="HRMSModel.BonusType">
+              <MappingFragment StoreEntitySet="BonusType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="HRMSModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeductionType">
+            <EntityTypeMapping TypeName="HRMSModel.DeductionType">
+              <MappingFragment StoreEntitySet="DeductionType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designation">
+            <EntityTypeMapping TypeName="HRMSModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpAttendance">
+            <EntityTypeMapping TypeName="HRMSModel.EmpAttendance">
+              <MappingFragment StoreEntitySet="EmpAttendance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpBonus">
+            <EntityTypeMapping TypeName="HRMSModel.EmpBonus">
+              <MappingFragment StoreEntitySet="EmpBonus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="BonusType" ColumnName="BonusType" />
+                <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpDeduction">
+            <EntityTypeMapping TypeName="HRMSModel.EmpDeduction">
+              <MappingFragment StoreEntitySet="EmpDeduction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="DeductionType" ColumnName="DeductionType" />
+                <ScalarProperty Name="DeductionDate" ColumnName="DeductionDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpLeave">
+            <EntityTypeMapping TypeName="HRMSModel.EmpLeave">
+              <MappingFragment StoreEntitySet="EmpLeave">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="LeaveTypeId" ColumnName="LeaveTypeId" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="HRMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EmpTypeId" ColumnName="EmpTypeId" />
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeType">
+            <EntityTypeMapping TypeName="HRMSModel.EmployeeType">
+              <MappingFragment StoreEntitySet="EmployeeType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpSalary">
+            <EntityTypeMapping TypeName="HRMSModel.EmpSalary">
+              <MappingFragment StoreEntitySet="EmpSalary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveType">
+            <EntityTypeMapping TypeName="HRMSModel.LeaveType">
+              <MappingFragment StoreEntitySet="LeaveType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanType">
+            <EntityTypeMapping TypeName="HRMSModel.LoanType">
+              <MappingFragment StoreEntitySet="LoanType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpLoan">
+            <EntityTypeMapping TypeName="HRMSModel.EmpLoan">
+              <MappingFragment StoreEntitySet="EmpLoan">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LoanTypeId" ColumnName="LoanTypeId" />
+                <ScalarProperty Name="LoanDate" ColumnName="LoanDate" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="HRMS">
+        <EntityTypeShape EntityType="HRMSModel.BonusType" Width="1.5" PointX="3" PointY="14.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.Country" Width="1.5" PointX="0.75" PointY="9.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.DeductionType" Width="1.5" PointX="6" PointY="14.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.Designation" Width="1.5" PointX="0.75" PointY="6.25" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmpAttendance" Width="1.5" PointX="5.25" PointY="7.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmpBonus" Width="1.5" PointX="5.25" PointY="11" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmpDeduction" Width="1.5" PointX="8.25" PointY="9" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmpLeave" Width="1.5" PointX="8.25" PointY="5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.Employee" Width="1.5" PointX="3" PointY="7.5" Height="5.2494108072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmployeeType" Width="1.5" PointX="0.75" PointY="12.5" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EmpSalary" Width="1.5" PointX="5.25" PointY="22.625" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.LeaveType" Width="1.5" PointX="6" PointY="5.375" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.LoanType" Width="1.5" PointX="6" PointY="17.375" Height="1.5956835937500031" IsExpanded="true" />
+        <AssociationConnector Association="HRMSModel.FK_EmpBonus_BonusType" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.376152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="14.001152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="12.478057826822919" />
+          <ConnectorPoint PointX="5.25" PointY="12.478057826822919" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_Employee_Country" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.172841796875" />
+          <ConnectorPoint PointX="3" PointY="10.172841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpDeduction_DeductionType" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.15625" PointY="14.375" />
+          <ConnectorPoint PointX="7.15625" PointY="10.268992513020834" />
+          <ConnectorPoint PointX="8.25" PointY="10.268992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_Employee_Designation" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.6728417968750007" />
+          <ConnectorPoint PointX="3" PointY="7.6728417968750007" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpAttendance_Employee" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.6439925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="8.6439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpBonus_Employee" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.67652891341146" />
+          <ConnectorPoint PointX="5.25" PointY="11.67652891341146" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpDeduction_Employee" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.87223876953125" />
+          <ConnectorPoint PointX="8.25" PointY="9.87223876953125" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpLeave_Employee" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="7.5" />
+          <ConnectorPoint PointX="3.75" PointY="7.1990364583333353" />
+          <ConnectorPoint PointX="8.25" PointY="7.1990364583333353" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpLeave_LeaveType" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="6.1728417968750016" />
+          <ConnectorPoint PointX="8.25" PointY="6.1728417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_Employee_EmployeeType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.422547700520834" />
+          <ConnectorPoint PointX="3.75" PointY="13.422547700520834" />
+          <ConnectorPoint PointX="3.75" PointY="12.749410807291666" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpSalary_Employee" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.687102114983974" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="13.003176549885094" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="13.121027680082852" />
+          <ConnectorPoint PointX="4.9375" PointY="13.124602114983974" />
+          <ConnectorPoint PointX="4.9375" PointY="23.7112939453125" />
+          <ConnectorPoint PointX="5.25" PointY="23.7112939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="HRMSModel.EmpLoan" Width="1.5" PointX="8.25" PointY="13" Height="2.3648893229166674" />
+        <AssociationConnector Association="HRMSModel.FK_EmpLoan_Employee" >
+          <ConnectorPoint PointX="4.156252" PointY="12.749410807291666" />
+          <ConnectorPoint PointX="4.156252" PointY="13.869942161458333" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="13.869942161458333" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="13.869942161458333" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="13.869942161458333" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="13.869942161458333" />
+          <ConnectorPoint PointX="8.25" PointY="13.869942161458333" />
+        </AssociationConnector>
+        <AssociationConnector Association="HRMSModel.FK_EmpLoan_LoanType" >
+          <ConnectorPoint PointX="7.5" PointY="18.172841796875" />
+          <ConnectorPoint PointX="9" PointY="18.172841796875" />
+          <ConnectorPoint PointX="9" PointY="15.364889322916667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
